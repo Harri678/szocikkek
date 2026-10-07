@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
+     <form action="/filter">
+          <label for="minViews">Min: </label>
+          <input type="number" id="minViews" name="minViews" value="<%= minViews  %> ">
+          <button type="submit">Submit</button>
+     </form>
     <table>
         <thead>
             <tr>
@@ -15,15 +20,12 @@
         </thead>
         <tbody>
             <% articles.forEach(article => { %>
+               <% if(article.views > minViews) {%> 
                 <tr>
                     <td><a href="<%= article.url %> "><%= article.title %> </a> </td>
-                    <td><% if(article.views > 1000) {%>
-                        <strong> <%= article.views  %></strong> 
-                    <% }else{ %>
-                        <%= article.views  %> 
-                        <% } %> 
-                    </td>
+                    <td><%= article.views %> </td>
                 </tr>
+                <% } %> 
             <%  }); %>  
         </tbody>
     </table>

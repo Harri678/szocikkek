@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+<body>
+     <form action="/new" method="post">
+          <label for="title">Cim: </label>
+          <input type="text" id="title" name="title" value="<%= form.title %> ">
+
+          <label for="url">Url: </label>
+          <input type="text" name="url" id="url" value="<%= form.url %> ">
+
+          <label for="views">Views: </label>
+          <input type="number" name="views" id="views" value="<%= form.views %> ">
+
+          <button type="submit">Submit</button>
+
+          <% if(success){ %> 
+               <p style="color: green;">Sikeres adatfelvetel</p>
+               <a href="/">Vissza a fooldalra</a>
+          <% } %>
+          
+          <% if(errors){ %> 
+               <p style="color: red;"><%= errors %> </p>
+          <% } %> 
+     </form>
+</body>
+</html>
